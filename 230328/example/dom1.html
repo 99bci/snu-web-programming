@@ -26,15 +26,13 @@
         //   actionStatus.appendChild(clickStatus);
         // });
         
+        //한 버튼에서 구동되게끔 구현
         addButton.addEventListener("click", ()=>{
-            statusNum += 1;
-
-            const actionStatus = document.getElementById("action-status");
+            const statusParagraph = document.getElementById("status-p");
             
-            let clickStatus = document.createElement("div");
-            clickStatus.textContent = `Clicked ${statusNum} times`;
+            statusParagraph.innerHTML = `Clicked ${statusNum} times`;
 
-            actionStatus.appendChild(clickStatus);
+            statusNum += 1;
         });
 
         const delButton = document.getElementById("del-button");
@@ -53,6 +51,9 @@
     <p id="my-paragraph">This is a sample paragraph.</p>
     <button id="add-button">Add Status</button>
     <button id="del-button">Delete Status</button>
-    <p id="action-status">Action Status:</p>
+    <p id="action-status">
+        Action Status:
+        <div id="status-p"></div>
+    </p>
   </body>
 </html>
